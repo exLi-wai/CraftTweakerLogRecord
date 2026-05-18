@@ -1,4 +1,4 @@
-package com.lw.CrtLogFilter.record;
+package com.lw.CrtLogRecord.record;
 
 import crafttweaker.api.player.IPlayer;
 import crafttweaker.runtime.ILogger;

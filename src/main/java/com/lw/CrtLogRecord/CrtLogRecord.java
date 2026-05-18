@@ -1,7 +1,7 @@
-package com.lw.CrtLogFilter;
+package com.lw.CrtLogRecord;
 
-import com.lw.CrtLogFilter.record.ErrorFileLogger;
-import com.lw.CrtLogFilter.record.FatalLogAppender;
+import com.lw.CrtLogRecord.record.ErrorFileLogger;
+import com.lw.CrtLogRecord.record.FatalLogAppender;
 import com.lw.crt_log_record.Tags;
 import crafttweaker.CrafttweakerImplementationAPI;
 import net.minecraftforge.fml.common.Mod;

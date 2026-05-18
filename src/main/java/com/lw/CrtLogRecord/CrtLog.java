@@ -1,10 +1,10 @@
-package com.lw.CrtLogFilter;
+package com.lw.CrtLogRecord;
 
 import crafttweaker.annotations.ZenRegister;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-@ZenClass("mods.crt_log_filter.CrtLog")
+@ZenClass("mods.crt_log_record.CrtLog")
 @ZenRegister
 public class CrtLog {
 

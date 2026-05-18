@@ -1,4 +1,4 @@
-package com.lw.CrtLogFilter;
+package com.lw.CrtLogRecord;
 
 import crafttweaker.CraftTweakerAPI;
 import org.apache.logging.log4j.LogManager;

@@ -1,4 +1,4 @@
-package com.lw.CrtLogFilter.record;
+package com.lw.CrtLogRecord.record;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.LogEvent;

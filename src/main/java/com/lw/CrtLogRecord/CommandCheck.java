@@ -24,7 +24,7 @@ public class CommandCheck extends CommandBase {
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) {
         String loaderName = args.length > 0 ? args[0] : SyntaxCheckRunner.DEFAULT_LOADER;
         SyntaxCheckRunner.Result result = SyntaxCheckRunner.run(loaderName);
-        String color = result.isSuccess() ? "\u00a7a" : "\u00a7c";
+        String color = result.isSuccess() ? "§a" : "§c";
 
         for(String line : result.getLines()) {
             sender.sendMessage(new TextComponentString(color + line));

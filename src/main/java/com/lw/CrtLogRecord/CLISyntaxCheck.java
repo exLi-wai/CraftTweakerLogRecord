@@ -112,7 +112,7 @@ public class CLISyntaxCheck {
     }
 
     private static String stripFormatting(String output) {
-        return output.replaceAll("[\\u00a7搂][0-9a-fk-orA-FK-OR]", "");
+        return output.replaceAll("(?i)[\\u00a7\\u6402][0-9A-FK-OR]", "");
     }
 
     private static boolean isCheckFailure(String output) {
@@ -123,9 +123,9 @@ public class CLISyntaxCheck {
 
     private static void printUsage() {
         System.err.println("Usage:");
-        System.err.println("  crtcheck --local [loaderName]");
-        System.err.println("  crtcheck --local <host> <port> [loaderName]");
-        System.err.println("  crtcheck --rcon <host> <port> <password> [loaderName]");
+        System.err.println("  java -jar crt_log_record-<version>.jar --local [loaderName]");
+        System.err.println("  java -jar crt_log_record-<version>.jar --local <host> <port> [loaderName]");
+        System.err.println("  java -jar crt_log_record-<version>.jar --rcon <host> <port> <password> [loaderName]");
     }
 
     private static class RCONClient implements Closeable {
@@ -171,7 +171,7 @@ public class CLISyntaxCheck {
         }
 
         private void sendPacket(int id, int type, byte[] payload) throws IOException {
-            int len = 8 + payload.length + 2; // id(4) + type(4) + payload + null(1) + padding(1)
+            int len = 8 + payload.length + 2;
             out.writeInt(Integer.reverseBytes(len));
             out.writeInt(Integer.reverseBytes(id));
             out.writeInt(Integer.reverseBytes(type));

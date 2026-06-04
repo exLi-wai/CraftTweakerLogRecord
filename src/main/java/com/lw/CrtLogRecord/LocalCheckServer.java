@@ -130,12 +130,7 @@ public final class LocalCheckServer implements Closeable {
     }
 
     private String runOnServerThread(String loaderName) throws Exception {
-        FutureTask<String> task = new FutureTask<>(new Callable<String>() {
-            @Override
-            public String call() {
-                return SyntaxCheckRunner.run(loaderName).toTerminalText();
-            }
-        });
+        FutureTask<String> task = new FutureTask<>(() -> SyntaxCheckRunner.run(loaderName).toTerminalText());
 
         if(minecraftServer.isCallingFromMinecraftThread()) {
             task.run();

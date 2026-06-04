@@ -6,6 +6,7 @@ import com.lw.crt_log_record.Tags;
 import crafttweaker.CrafttweakerImplementationAPI;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 
@@ -25,5 +26,10 @@ public class CrtLogRecord {
         FatalLogAppender fatalAppender = new FatalLogAppender(logFile);
         fatalAppender.start();
         ((Logger) LogManager.getLogger("Crafttweaker")).addAppender(fatalAppender);
+    }
+
+    @Mod.EventHandler
+    public void onServerStarting(FMLServerStartingEvent event) {
+        event.registerServerCommand(new CommandCheck());
     }
 }

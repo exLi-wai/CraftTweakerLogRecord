@@ -7,6 +7,7 @@ import crafttweaker.CrafttweakerImplementationAPI;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 
@@ -31,5 +32,11 @@ public class CrtLogRecord {
     @Mod.EventHandler
     public void onServerStarting(FMLServerStartingEvent event) {
         event.registerServerCommand(new CommandCheck());
+        LocalCheckServer.start(event.getServer());
+    }
+
+    @Mod.EventHandler
+    public void onServerStopping(FMLServerStoppingEvent event) {
+        LocalCheckServer.stop();
     }
 }

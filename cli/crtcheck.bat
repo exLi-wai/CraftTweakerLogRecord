@@ -1,12 +1,12 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set PROJECT_DIR=%~dp0..
-set CLI_DIR=%~dp0
+for %%I in ("%~dp0..") do set "PROJECT_DIR=%%~fI"
+for %%I in ("%~dp0.") do set "CLI_DIR=%%~fI"
 set JAVA_HOME=C:\Program Files\Zulu\zulu-17
 
 :: Build jar if not exists
-if not exist "%CLI_DIR%build\libs\crtcheck.jar" (
+if not exist "%CLI_DIR%\build\libs\crtcheck.jar" (
     echo Building CLI tool...
     cd "%PROJECT_DIR%"
     call "%PROJECT_DIR%\gradlew.bat" -p "%CLI_DIR%" jar -q --no-daemon
@@ -17,4 +17,4 @@ if not exist "%CLI_DIR%build\libs\crtcheck.jar" (
 )
 
 :: Run syntax check
-java -jar "%CLI_DIR%build\libs\crtcheck.jar" %*
+java -jar "%CLI_DIR%\build\libs\crtcheck.jar" %*
